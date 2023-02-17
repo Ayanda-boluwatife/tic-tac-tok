@@ -117,6 +117,30 @@ function renderStatus() {
     }
 }
 
+// Computer Plays
+function RandomPosition() {
+    return Math.floor((Math.random() * 9 + 1));
+}
+
+function computerMove(box) {
+    let position;
+        do {
+            position = RandomPosition();
+        } while("box-" + position === box.id || occupiedBoxes.indexOf(position) !== -1);
+        occupiedBoxes.push(position);
+        
+        boxes.forEach(box => {
+            if (box.id === "box-" + position) {
+                placeSymbol(box);
+                if (count >= 5) {
+                    checkForMatches();
+                }
+                switchSymbol(box);
+                renderStatus();
+            }
+        })
+}
+
 
 // Color Theme
 const colorThemes = document.querySelectorAll("[name=theme]");
