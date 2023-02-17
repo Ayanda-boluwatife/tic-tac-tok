@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <section>
+        <h1 class="heading">Tic Tac Toe</h1>
+        <h2 class="subheading">Player vs Player</h2>
+        <div class="menu">
+            <h3 id="player1-info">Player 1:</h3>
+            <h3 id="player2-info">Player 2:</h3>
+            <div>
+                <h3 id="status-el"></h3>
+                <button id="restart-btn">
+                    <svg class="icon" id="icon-restart">
+                        <use xlink:href="images/icons.svg#icon-restart"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="board">
+            <button id="box-1" class="box"></button>
+            <button id="box-2" class="box"></button>
+            <button id="box-3" class="box"></button>
+            <button id="box-4" class="box"></button>
+            <button id="box-5" class="box"></button>
+            <button id="box-6" class="box"></button>
+            <button id="box-7" class="box"></button>
+            <button id="box-8" class="box"></button>
+            <button id="box-9" class="box"></button>
+        </div>
+        <div class="scores">
+            <h3 id="player1-score">P1: <span>0</span></h3>
+            <h3 id="tie-score">Ties: <span>0</span></h3>
+            <h3 id="player2-score">P2: <span>0</span></h3>
+        </div>
+    </section>
+    <form action="" class="color-picker">
+        <fieldset>
+            <legend class="visually-hidden">Pick a color theme</legend>
+            <label for="light" class="visually-hidden">Light</label>
+            <input type="radio" id="light" name="theme">
+
+            <label for="blue" class="visually-hidden">Blue</label>
+            <input type="radio" id="blue" name="theme">
+
+            <label for="green" class="visually-hidden">Green</label>
+            <input type="radio" id="green" name="theme">
+
+            <label for="blue-green" class="visually-hidden">Blue Green</label>
+            <input type="radio" id="blue-green" name="theme">
+        </fieldset>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

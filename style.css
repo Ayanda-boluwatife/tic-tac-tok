@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@400;600;700&display=swap');
+/* Custom Properties */
+
+:root {
+
+  --clr-cross: #424242;
+  --clr-circle: #fff;
+
+  --ff-primary: 'Poppins', sans-serif;
+  --ff-secondary: 'Mochiy Pop One', sans-serif;
+
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+
+  --fs-body: 1.2rem;
+  --fs-subheading: 1.5rem;
+  --fs-heading: 2.5rem;
+
+}
+
+/* Color Themes */
+.light {
+  --clr-accent-400: hsl(0, 82%, 60%);
+
+  --clr-primary-400: #242424;
+
+  --clr-neutral-200: #cecece;
+  --clr-neutral-300: #acacac;
+
+  --clr-body: var(--clr-primary-400);
+  --clr-heading: var(--clr-body);
+  --clr-subheading: var(--clr-accent-400);
+  --clr-background: var(--clr-neutral-200);
+  --clr-board: var(--clr-neutral-300);
+}
+
+.blue {
+  --clr-accent-300: hsl(43, 100%, 45%);
+
+  --clr-primary-400: hsl(192, 100%, 12%);
+
+  --clr-neutral-200: hsl(192, 81%, 58%);
+  --clr-neutral-300: hsl(192, 85%, 44%);
+
+  --clr-body: var(--clr-primary-400);
+  --clr-heading: var(--clr-body);
+  --clr-subheading: var(--clr-accent-300);
+  --clr-background: var(--clr-neutral-200);
+  --clr-board: var(--clr-neutral-300);
+}
+
+.green {
+  --clr-accent-400: hsl(0, 100%, 36%);
+  
+  --clr-primary-400: hsl(90, 100%, 12%);
+  
+  --clr-neutral-200: hsl(90, 81%, 41%);
+  --clr-neutral-300: hsl(90, 85%, 34%);
+  
+  --clr-body: var(--clr-primary-400);
+  --clr-heading: var(--clr-body);
+  --clr-subheading: var(--clr-accent-400);
+  --clr-background: var(--clr-neutral-200);
+  --clr-board: var(--clr-neutral-300);
+}
+
+.blue-green {
+  --clr-accent-400: hsl(0, 82%, 60%);
+
+  --clr-primary-400: hsl(174, 100%, 12%);
+
+  --clr-neutral-200: hsl(174, 81%, 41%);
+  --clr-neutral-300: hsl(174, 85%, 34%);
+
+  --clr-body: var(--clr-primary-400);
+  --clr-heading: var(--clr-body);
+  --clr-subheading: var(--clr-accent-400);
+  --clr-background: var(--clr-neutral-200);
+  --clr-board: var(--clr-neutral-300);
+}
+
+/* CSS Reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* General Styling */
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  color: var(--clr-body);
+  background-color: var(--clr-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HEADINGS */
+
+.heading {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-heading);
+  font-weight: var(--fw-bold);
+  color: var(--clr-heading);
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-subheading);
+  font-weight: var(--fw-semi-bold);
+  color: var(--clr-subheading);
+  margin-bottom: 1rem;
+
+}
+
+/* MENU */
+
+.menu * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 5px;
+  font-weight: var(--fw-semi-bold);
+}
+
+.menu #status-el {
+  font-size: 1.4rem;
+}
+
+.menu button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border-radius: 10rem;
+  margin-left: 1rem;
+  transition: transform 0.2s;
+}
+.menu button:hover {
+  transform: scale(1.08);
+}
+
+.menu #icon-restart {
+  fill: var(--clr-body);
+}
+
+/* GAME BOARD */
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  background-color: var(--clr-board);
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 100px;
+  height: 100px;
+  background-color: var(--clr-background);
+  font-size: var(--fs-heading);
+}
+
+.icon {
+  width: 1.5rem;
+  aspect-ratio: 1;
+  display: inline-block;
+}
+
+#icon-cross {
+  fill: var(--clr-cross);
+}
+
+#icon-circle {
+  fill: var(--clr-circle);
+}
+
+.box #icon-cross {
+  width: 50px;
+}
+
+.box #icon-circle {
+  width: 55px;
+}
+
+/* SCORES */
+
+.scores {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-weight: var(--fw-semi-bold);
+}
+.scores span {
+  color: #fff;
+}
+
+/* COLOR PICKER */
+
+.color-picker {
+  display: flex;
+  justify-content: center;
+}
+
+.color-picker fieldset {
+  border: 0;
+  display: flex;
+  gap: 1.3rem;
+  background: #fff;
+  width: fit-content;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.color-picker input[type="radio"] {
+  appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  outline: 3px solid var(--radio-color, currentColor);
+  outline-offset: 2px;
+  border-radius: 10rem;
+}
+
+.color-picker input[type="radio"]:checked {
+  background-color: var(--radio-color);
+}
+
+.color-picker input[type="radio"]#light {
+  --radio-color: hsl(0, 0%, 67%);
+}
+.color-picker input[type="radio"]#blue {
+  --radio-color: hsl(192, 85%, 44%);
+}
+.color-picker input[type="radio"]#green {
+  --radio-color: hsl(90, 85%, 34%);
+}
+.color-picker input[type="radio"]#blue-green {
+  --radio-color: hsl(174, 85%, 34%);
+}
+
+/* Utility Classes */
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
