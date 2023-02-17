@@ -13,6 +13,9 @@ const box7 = document.querySelector("#box-7");
 const box8 = document.querySelector("#box-8");
 const box9 = document.querySelector("#box-9");
 const restartBtn = document.querySelector("#restart-btn");
+const player1Score = document.querySelector("#player1-score");
+const player2Score = document.querySelector("#player2-score");
+const tieScore = document.querySelector("#tie-score");
 
 let symbol = `
     <svg class="icon" id="icon-cross">
@@ -32,6 +35,9 @@ let symbol2 = `
 let count = 0;
 let win = false;
 let occupiedBoxes = [];
+let p1ScoreCount = 0;
+let p2ScoreCount = 0;
+let tieScoreCount = 0;
 
 player1Info.innerHTML += symbol1;
 player2Info.innerHTML += symbol2;
@@ -39,19 +45,22 @@ renderStatus();
 
 
 const playerVsPlayer = function(box) {
-    // placing the symbol
-    placeSymbol(box);
+    if (box.textContent === "" && !win) {
+        // placing the symbol
+        placeSymbol(box);
 
-    // checking for matches
-    if (count >= 5) {
-        checkForMatches();
+        // checking for matches
+        if (count >= 5) {
+            checkForMatches();
+        }
+
+        // Switching the symbol so it's the other player's turn next
+        switchSymbol(box);
+
+        // displaying the status of the game at the current moment in the statusEl
+        renderStatus(); 
     }
-
-    // Switching the symbol so it's the other player's turn next
-    switchSymbol(box);
-
-    // displaying the status of the game at the current moment in the statusEl
-    renderStatus(); 
+    
 
 }
 
@@ -71,11 +80,8 @@ restartBtn.addEventListener("click", function() {
 })
 
 function placeSymbol(box) {
-
-    if (box.textContent === "" && !win) {
-        box.innerHTML = symbol;
-        count += 1;
-    }
+    box.innerHTML = symbol;
+    count += 1;
 }
 
 function checkForMatches() {
@@ -107,11 +113,17 @@ function renderStatus() {
         // reswitching the symbol as it was switched after the last move
         if (symbol===symbol1) {
             statusEl.innerHTML = `${symbol2} <span>Won!</span>`;
+            p2ScoreCount += 1;
+            player2Score.textContent = p2ScoreCount;
         } else {
             statusEl.innerHTML = `${symbol1} <span>Won!</span>`;
+            p1ScoreCount += 1;
+            player1Score.textContent = p1ScoreCount;
         }
     } else if (count===9 && !win) {
         statusEl.innerHTML = `It's a Draw`;
+        tieScoreCount += 1;
+        tieScore.textContent = tieScoreCount;
     } else {
         statusEl.innerHTML = `${symbol} <span>Turn</span>`;
     }
